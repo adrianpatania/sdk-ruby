@@ -20,5 +20,7 @@ require_relative './mercadopago/resources/merchant_order'
 require_relative './mercadopago/resources/payment_methods'
 require_relative './mercadopago/resources/advanced_payment'
 require_relative './mercadopago/resources/disbursement_refund'
+require_relative './mercadopago/resources/store'
+require_relative './mercadopago/resources/pos'
 
 require_relative './mercadopago/sdk'
