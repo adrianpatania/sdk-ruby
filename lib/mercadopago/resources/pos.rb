@@ -36,7 +36,7 @@ module Mercadopago
       _delete(uri: "/pos/#{pos_id}", data: pos_data, request_options: request_options)
     end
 
-    def payment(user_id, external_store_id, external_pos_id, payment_data, request_options: nil)
+    def order(user_id, external_store_id, external_pos_id, payment_data, request_options: nil)
       _put(uri: "/instore/qr/seller/collectors/#{user_id}/stores/#{external_store_id}/pos/#{external_pos_id}/orders", data: payment_data, request_options: request_options)
     end
   end
