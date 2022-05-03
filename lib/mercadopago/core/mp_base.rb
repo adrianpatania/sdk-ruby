@@ -66,6 +66,16 @@ module Mercadopago
                        timeout: request_options.connection_timeout)
     end
 
+    def _put_without_body(uri:, data:, request_options: nil)
+      raise TypeError, 'Data must be a Hash' unless data.nil? || data.is_a?(Hash)
+
+      request_options = _check_request_options(request_options)
+      headers = _check_headers(request_options, { 'Content-Type': @config.mime_json })
+
+      @http_client.put_without_body(url: @config.api_base_url + uri, data: data.to_json, headers: headers,
+                       timeout: request_options.connection_timeout)
+    end
+
     def _delete(uri:, request_options: nil)
       request_options = _check_request_options(request_options)
       headers = _check_headers(request_options)
