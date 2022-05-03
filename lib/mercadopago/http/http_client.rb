@@ -58,6 +58,20 @@ module Mercadopago
       }
     end
 
+    def put_without_body(url:, data:, headers:, timeout: nil)
+      result = RestClient::Request.execute(method: :put, url: url, payload: data, headers: headers,
+                                           timeout: timeout)
+      {
+        status: result.code,
+        response: JSON.parse({}.to_json)
+      }
+    rescue RestClient::Exception => e
+      {
+        status: e.http_code,
+        response: JSON.parse(e.response.body)
+      }
+    end
+
     def delete(url:, headers:, timeout: nil)
       result = RestClient::Request.execute(method: 'delete', url: url, headers: headers, timeout: timeout)
       {
