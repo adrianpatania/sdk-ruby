@@ -83,5 +83,13 @@ module Mercadopago
       @http_client.delete(url: @config.api_base_url + uri, headers: headers,
                           timeout: request_options.connection_timeout)
     end
+
+    def _delete_without_body(uri:, request_options: nil)
+      request_options = _check_request_options(request_options)
+      headers = _check_headers(request_options)
+
+      @http_client.delete_without_body(url: @config.api_base_url + uri, headers: headers,
+                          timeout: request_options.connection_timeout)
+    end
   end
 end
