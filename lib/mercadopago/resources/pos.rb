@@ -33,7 +33,7 @@ module Mercadopago
     end
 
     def delete(pos_id, request_options: nil)
-      _delete(uri: "/pos/#{pos_id}", data: pos_data, request_options: request_options)
+      _delete(uri: "/pos/#{pos_id}", request_options: request_options)
     end
 
     def order(user_id, external_store_id, external_pos_id, payment_data, request_options: nil)
